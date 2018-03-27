@@ -31,24 +31,7 @@ for(var i = 0; i < pacientes.length; i++){
        var imc = tdPeso / (tdAltura * tdAltura);
        tdIMC.textContent = imc.toFixed(2); //.toFixed define a quantidade de casas decimais que serão exibidos.
     }
-  
 }
 
-//PEGA OS DADOS DO FORMULÁRIO E OS ADICIONA A TABELA.
-var botaoAdicionar = document.querySelector("#adicionar-paciente");
-botaoAdicionar.addEventListener("click", function(event){
-  event.preventDefault();
-  
-  var form = document.querySelector("#form-adiciona");
 
-  var nome = form.nome.value;
-  var peso = form.peso.value;
-  var altura = form.altura.value;
-  var gordura = form.altura.gordura;
-
-  console.log(nome);
-  console.log(peso);
-  console.log(altura);
-  console.log(gordura);
-});
 
