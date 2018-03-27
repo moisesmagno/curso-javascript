@@ -33,3 +33,11 @@ for(var i = 0; i < pacientes.length; i++){
     }
   
 }
+
+//PEGA OS DADOS DO FORMULÁRIO E OS ADICIONA A TABELA.
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+botaoAdicionar.addEventListener("click", function(event){
+  event.preventDefault();
+  console.log("Este é um teste de submissão de dados.");  
+});
+
