@@ -29,7 +29,7 @@ for(var i = 0; i < pacientes.length; i++){
    
     if(pesoValido && alturaValida){
        var imc = tdPeso / (tdAltura * tdAltura);
-       tdIMC.textContent = imc.toFixed(2);
+       tdIMC.textContent = imc.toFixed(2); //.toFixed define a quantidade de casas decimais que serão exibidos.
     }
   
 }
@@ -38,6 +38,17 @@ for(var i = 0; i < pacientes.length; i++){
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 botaoAdicionar.addEventListener("click", function(event){
   event.preventDefault();
-  console.log("Este é um teste de submissão de dados.");  
+  
+  var form = document.querySelector("#form-adiciona");
+
+  var nome = form.nome.value;
+  var peso = form.peso.value;
+  var altura = form.altura.value;
+  var gordura = form.altura.gordura;
+
+  console.log(nome);
+  console.log(peso);
+  console.log(altura);
+  console.log(gordura);
 });
 
