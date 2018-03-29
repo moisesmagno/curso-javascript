@@ -5,20 +5,13 @@ botaoAdicionar.addEventListener("click", function(event){
 
     //Recupera os dados do paciente.
     //Retorna um objeto.
-    var paciente = obtemPacienteDoFormulario("#form-adiciona");
+    var form = document.querySelector("#form-adiciona");
+    var paciente = obtemPacienteDoFormulario(form);
 
     var erros = validaPaciente(paciente);
 
     if(erros.length > 0){
-
-        var ul = document.querySelector("#msg-error");
-        
-        for(var i = 0; i < error.length; i++){
-            var li = document.createElement("li");
-            li.textContent = error[i];
-            ul.appendChild(li);
-        }
-
+        exibeMensagemErro(erros);
         return;
     }
 
@@ -28,12 +21,17 @@ botaoAdicionar.addEventListener("click", function(event){
     var tabela = document.querySelector("#tabela-pacientes");
     tabela.appendChild(pacienteTr);
 
+
+    form.reset(); //Limpa os campos do formuláiro.
+
+    var msgErro = document.querySelector("#msg-error");
+    msgErro.innerHTML = "";
+
 });
 
 
-function obtemPacienteDoFormulario(parameter){
-    var form = document.querySelector(parameter);
-
+function obtemPacienteDoFormulario(form){
+    
     var paciente = {
         nome: form.nome.value,
         peso: form.peso.value,
@@ -41,8 +39,6 @@ function obtemPacienteDoFormulario(parameter){
         gordura: form.gordura.value,
         imc: calculaIMC(form.peso.value,form.altura.value)
     }
-
-    form.reset(); //Limpa os campos do formuláiro.
 
     return paciente;
 }
@@ -74,9 +70,30 @@ function validaPaciente(paciente){
 
     var error = [];
 
-    if(!validaPeso(paciente.peso)) error.push("Peso inválido");
+    if(paciente.nome.length == 0) error.push("O campo nome não pode ser vazio!");
 
-    if(!validaAltura(paciente.altura)) error.push("Altura Inválida");
+    if(paciente.peso.length == 0) error.push("O campo peso não pode ser vazio!");
+
+    if(paciente.altura.length == 0) error.push("O campo altura não pode ser vazio!");
+
+    if(paciente.gordura.length == 0) error.push("O campo gordura não pode ser vazio!");
+
+    if(!validaPeso(paciente.peso)) error.push("Peso inválido!");
+
+    if(!validaAltura(paciente.altura)) error.push("Altura Inválida!");
 
     return error;
+}
+
+function exibeMensagemErro(erros){
+
+    var ul = document.querySelector("#msg-error");
+    ul.innerHTML = "";
+    
+    erros.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
+
 }
