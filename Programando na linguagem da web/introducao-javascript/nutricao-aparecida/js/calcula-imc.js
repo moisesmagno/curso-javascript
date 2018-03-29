@@ -28,10 +28,15 @@ for(var i = 0; i < pacientes.length; i++){
     }
    
     if(pesoValido && alturaValida){
-       var imc = tdPeso / (tdAltura * tdAltura);
-       tdIMC.textContent = imc.toFixed(2); //.toFixed define a quantidade de casas decimais que serão exibidos.
+       tdIMC.textContent = calculaIMC(tdPeso,tdAltura); 
     }
 }
+
+function calculaIMC(peso, altura){
+  var imc = peso / (altura * altura);
+  return imc.toFixed(2); //.toFixed define a quantidade de casas decimais que serão exibidos.
+}
+
 
 
 
