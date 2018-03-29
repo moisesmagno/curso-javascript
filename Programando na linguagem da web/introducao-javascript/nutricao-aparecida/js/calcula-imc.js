@@ -12,29 +12,45 @@ for(var i = 0; i < pacientes.length; i++){
     var tdAltura = paciente.querySelector(".info-altura").textContent;  
     var tdIMC = paciente.querySelector(".info-imc");
 
-    var pesoValido = true;
-    var alturaValida = true;
+    var pesoValido = validaPeso(tdPeso);
+    var alturaValida = validaAltura(tdAltura);
 
-    if(tdPeso >= 1000 || tdPeso <= 0){
-      tdIMC.textContent = "Peso inválido!";
-      paciente.classList.add("paciente-invalido");
-      pesoValido = false;
+    if(!pesoValido){
+        tdIMC.textContent = "Peso inválido!";
+        paciente.classList.add("paciente-invalido");
+        pesoValido = false;
     }
 
-    if(tdAltura >= 3.00 || tdAltura <= 0){
-      tdIMC.textContent = "Altura Inválida!";
-      paciente.classList.add("paciente-invalido");
-      alturaValida = false;
+    if(!alturaValida){
+        tdIMC.textContent = "Altura Inválida!";
+        paciente.classList.add("paciente-invalido");
+        alturaValida = false;
     }
-   
+
     if(pesoValido && alturaValida){
-       tdIMC.textContent = calculaIMC(tdPeso,tdAltura); 
+        tdIMC.textContent = calculaIMC(tdPeso,tdAltura); 
     }
 }
 
+function validaPeso(peso){
+    if(peso >= 0 && peso < 1000){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function validaAltura(altura){
+    if(altura >= 0 && altura < 3.0){
+        return true;
+    }else{
+        return false;
+    }
+}   
+
 function calculaIMC(peso, altura){
-  var imc = peso / (altura * altura);
-  return imc.toFixed(2); //.toFixed define a quantidade de casas decimais que serão exibidos.
+    var imc = peso / (altura * altura);
+    return imc.toFixed(2); //.toFixed define a quantidade de casas decimais que serão exibidos.
 }
 
 

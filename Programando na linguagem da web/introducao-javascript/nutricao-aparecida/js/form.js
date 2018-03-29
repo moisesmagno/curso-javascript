@@ -7,6 +7,21 @@ botaoAdicionar.addEventListener("click", function(event){
     //Retorna um objeto.
     var paciente = obtemPacienteDoFormulario("#form-adiciona");
 
+    var erros = validaPaciente(paciente);
+
+    if(erros.length > 0){
+
+        var ul = document.querySelector("#msg-error");
+        
+        for(var i = 0; i < error.length; i++){
+            var li = document.createElement("li");
+            li.textContent = error[i];
+            ul.appendChild(li);
+        }
+
+        return;
+    }
+
     //Monta e retorna um TR válida.
     var pacienteTr = montarTR(paciente);
 
@@ -53,4 +68,15 @@ function montaTd(dado,classe){
     td.classList.add(classe);
 
     return td;
+}
+
+function validaPaciente(paciente){
+
+    var error = [];
+
+    if(!validaPeso(paciente.peso)) error.push("Peso inválido");
+
+    if(!validaAltura(paciente.altura)) error.push("Altura Inválida");
+
+    return error;
 }
