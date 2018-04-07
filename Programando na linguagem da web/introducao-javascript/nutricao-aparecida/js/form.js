@@ -80,3 +80,12 @@ function validaPaciente(paciente){
 
     return error;
 }
+
+//.reset() : Limpas os campos de um formulário selecionado.
+//event.preventDefault() : Previne que a página seja atualizada.
+//.appendChild() : Add algúm conteúdo dentro de um elemento selecionado previamente, exemplo Divs, Tabelas, Tr, ul, li, etc.
+//.Push() :  Add um elemente ao array
+//document.querySelector() : Seleciona um elemento, classe ou ID do Dom.
+//document.querySElectorAll() : Seleciona todos os elementos, classes ou IDs selecionados do DOM
+//.classList.add() : Adiciona uma classe a um elemento selecionado previamente.
+//.addEventListener() : Está constantemente ouvindo os elementos selecionados do DOM, a espsera de uma ação de um evento. Exemplo: Eventos click, dblclick, etc.

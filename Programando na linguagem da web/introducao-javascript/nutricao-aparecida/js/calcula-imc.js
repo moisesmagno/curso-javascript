@@ -53,6 +53,6 @@ function calculaIMC(peso, altura){
     return imc.toFixed(2); //.toFixed define a quantidade de casas decimais que serão exibidos.
 }
 
-
-
+//.toFixed(n) : Define a quantidade de casas decimais que serão exibidos.
+//.textContent : Recupera ou pode modificar o conteúdo de um elemento selecionado previamente. 
 
