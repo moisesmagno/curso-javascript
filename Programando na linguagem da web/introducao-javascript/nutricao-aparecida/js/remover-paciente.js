@@ -17,8 +17,14 @@ var tabela = document.querySelector("#tabela-pacientes");
 tabela.addEventListener("dblclick", function(event){
 	var alboClick = event.target; //Pega o Albo clicado
 	var paiAlbo = alboClick.parentNode; //Seleciona o pai do Albo clicado.
-	paiAlbo.remove();
+
+	paiAlbo.classList.add("fadeOut");
+
+	setTimeout(function(){
+		paiAlbo.remove();
+	},500);
 });
 
+//--------------------------------------------------------------------------
 
 //.forEach(function(param){}) : Percorre um array;
