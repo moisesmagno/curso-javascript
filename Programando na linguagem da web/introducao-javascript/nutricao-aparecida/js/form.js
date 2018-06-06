@@ -8,6 +8,9 @@ botaoAdicionar.addEventListener("click", function(event){
     var form = document.querySelector("#form-adiciona");
     var paciente = obtemPacienteDoFormulario(form);
 
+    //Monta e retorna um TR válida.
+    var pacienteTR = montarTR(paciente);
+
     var erros = validaPaciente(paciente);
 
     if(erros.length > 0){
@@ -15,14 +18,11 @@ botaoAdicionar.addEventListener("click", function(event){
         return;
     }
 
-    //Monta e retorna um TR válida.
-    var pacienteTr = montarTR(paciente);
-
     var tabela = document.querySelector("#tabela-pacientes");
-    tabela.appendChild(pacienteTr);
 
+    tabela.appendChild(pacienteTR);
 
-    form.reset(); //Limpa os campos do formuláiro.
+    form.reset();
 
     var msgErro = document.querySelector("#msg-error");
     msgErro.innerHTML = "";
@@ -59,9 +59,9 @@ function montarTR(paciente){
 }
 
 function montaTd(dado,classe){
-    var td = document.querySelector("td");
-    td.textContent = dado;
+    var td = document.createElement("td");
     td.classList.add(classe);
+    td.textContent = dado;
 
     return td;
 }
