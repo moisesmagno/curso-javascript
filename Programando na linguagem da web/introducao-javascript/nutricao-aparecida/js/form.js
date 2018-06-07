@@ -8,9 +8,6 @@ botaoAdicionar.addEventListener("click", function(event){
     var form = document.querySelector("#form-adiciona");
     var paciente = obtemPacienteDoFormulario(form);
 
-    //Monta e retorna um TR válida.
-    var pacienteTR = montarTR(paciente);
-
     var erros = validaPaciente(paciente);
 
     if(erros.length > 0){
@@ -18,9 +15,7 @@ botaoAdicionar.addEventListener("click", function(event){
         return;
     }
 
-    var tabela = document.querySelector("#tabela-pacientes");
-
-    tabela.appendChild(pacienteTR);
+    obtemPacienteDoFormulario(paciente);    
 
     form.reset();
 
@@ -29,6 +24,12 @@ botaoAdicionar.addEventListener("click", function(event){
 
 });
 
+function adicionaPacienteNaTabela(paciente){
+    //Monta e retorna um TR válida.
+    var pacienteTR = montarTR(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTR);
+}
 
 function obtemPacienteDoFormulario(form){
     
