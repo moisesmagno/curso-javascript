@@ -40,15 +40,13 @@
             }
         ];
         
-        let htmlMontado = funcionarios.map((funcionario) => {
-            return `
+        let htmlMontado = funcionarios.map((funcionario) => `
                 <tr>
                     <td>${funcionario.nome}</td>
                     <td>${funcionario.idade}</td>
                     <td>${funcionario.salario}</td>
                 </tr>
-            `
-        }).join('');
+            `).join('');
 
         let tbody = document.querySelector('tbody');
         tbody.innerHTML = htmlMontado
