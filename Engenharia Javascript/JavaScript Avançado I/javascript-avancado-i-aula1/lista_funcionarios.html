@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lista de funcionarios</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <table>
+            <thead>
+                <h2>lista de funcionários</h2>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Salário</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>    
+        </table>
+    </body>
+    <script>
+        let funcionarios = [
+            {
+                "nome" : "Henrique",
+                "idade": 35,
+                "salario": 8000.00
+            },
+            {
+                "nome" : "Fabiano",
+                "idade": 40,
+                "salario": 5000.00
+            },
+            {
+                "nome" : "Davi",
+                "idade": 24,
+                "salario": 3000.00
+            }
+        ];
+        
+        let htmlMontado = funcionarios.map((funcionario) => {
+            return `
+                <tr>
+                    <td>${funcionario.nome}</td>
+                    <td>${funcionario.idade}</td>
+                    <td>${funcionario.salario}</td>
+                </tr>
+            `
+        }).join('');
+
+        let tbody = document.querySelector('tbody');
+        tbody.innerHTML = htmlMontado
+    </script>
+</html>
