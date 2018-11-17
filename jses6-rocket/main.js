@@ -1,51 +1,18 @@
-class Matematica{
-    
-    // Um método estático, nunca encherga outros atributos e métodos da classe. 
-    static somar(n1, n2){
-        return n1 + n2;
-    }
-}
+const arr = [1,2,3,4,5,6];
+const newArr = arr.map((n,i) => `${i} : ${n * 2}`);
+console.log(newArr);
 
-class List{
-    
-    constructor(element=[]){
-        this.data = element;
-    }
+console.log("-------------");
 
-    addData(data){
-        this.data.push(data);
-        console.log(this.data)
-    }
+const somatotal = arr.reduce((total,next) => total + next);
+console.log(`Total da soma é: ${somatotal}`);
 
-}
+console.log("-------------");
 
-class TodoList extends List{
+const filter = arr.filter(item => item % 2 === 0);
+console.log(filter);
 
-    constructor(){
-        super();
-        this.todos = [];
-    }
+console.log("-------------");
 
-    addTodo(){
-        this.todos.push("Novo todo","List");
-        console.log(this.todos)
-    }
-}
-
-const minhaLista = new TodoList();
-
-let btn1 = document.querySelector("#btn_todoList");
-let btn2 = document.querySelector("#btn_novodado");
-let btn3 = document.querySelector("#btn_somar");
-
-btn1.addEventListener("click", function(){
-    minhaLista.addTodo();
-});
-
-btn2.addEventListener("click", function(){
-    minhaLista.addData("mensagem");
-})
-
-btn3.addEventListener("click", function(){
-    console.log(Matematica.somar(5,5));
-})
+const find = arr.find(item => item === 2);
+console.log(find);
